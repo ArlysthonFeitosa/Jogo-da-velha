@@ -1,4 +1,3 @@
-
 tabuleiro = [['_','_','_'],['_','_','_'],['_','_','_']]
 historicoTab = []
 ganhadores = []
@@ -21,57 +20,41 @@ def escolherOpcaoEOrientar():
 
     while opcao != 3:
         if opcao == 1:
+            limparTabuleiro()
             jogar()
             
         
         if opcao == 2:
             mostrarHistorico()
 
-        opcao = int(input("Digite sua opção: "))
 
         if opcao ==  3:
           print("Fim do jogo!")
 
 
-
-def escolherOpcaoEOrientar():
-    print()
-    print('PARA JOGAR DIGITE 1 ')
-    print()
-    print('PARA VER O HISTÓRICO DIGITE 2')
-    print()
-    print("PARA ENCERRAR DIGITE 3")
-    print()
-    opcao = int(input("Digite sua opção: "))
-
-    while opcao != 3:
-        if opcao == 1:
-            jogar()
-            
-        
-        if opcao == 2:
-            mostrarHistorico()
-
+        print()
+        print('PARA JOGAR DIGITE 1 ')
+        print()
+        print('PARA VER O HISTÓRICO DIGITE 2')
+        print()
+        print("PARA ENCERRAR DIGITE 3")
+        print()
         opcao = int(input("Digite sua opção: "))
-
-        if opcao ==  3:
-          print("Fim do jogo!")
 
 
 
 def jogar():
     
-    while(ganhar == False):
+    while(True):
+
         mostrarTabuleiro()
         inserirLinhaColuna(jogador1)
         if(checarSeGanhou(jogador1) == True):
-            tabuleiro = [['_','_','_'],['_','_','_'],['_','_','_']]
             break
-        
+            
         mostrarTabuleiro()
         inserirLinhaColuna(jogador2)
         if(checarSeGanhou(jogador2) == True):
-            tabuleiro = [['_','_','_'],['_','_','_'],['_','_','_']]
             break
 
 
@@ -92,7 +75,10 @@ def inserirLinhaColuna(jogador):
 
     tabuleiro[linha1 - 1][coluna1 - 1] = jogador
 
-
+def limparTabuleiro():
+    for i in range(0,3):
+        for j in range(0,3):
+            tabuleiro[i][j] = '_'
 
 def mostrarHistorico():
     numeroDePartidas = len(historicoTab)
@@ -115,7 +101,6 @@ def checarSeGanhou(jogador):
 
     if(velha == True or linha == True or coluna == True or diagonal == True):
         mostrarTabuleiro()
-            tabuleiro = [['_','_','_'],['_','_','_'],['_','_','_']]
         historicoTab.append(tabuleiro)
         return True
 
