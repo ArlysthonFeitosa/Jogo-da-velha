@@ -9,5 +9,4 @@
    * Você pode ver o tabuleiro e quem ganhou os últimos jogos
 * Escolha a opção 3 para sair do jogo
       
-![Imagens do projeto](https://github.com/ArlysthonFeitosa/Jogo-da-velha/blob/master/Imagens/1.PNG)
-![Imagens do projeto](https://github.com/ArlysthonFeitosa/Jogo-da-velha/blob/master/Imagens/2.PNG)
+![Vídeo projeto](https://github.com/ArlysthonFeitosa/Jogo-da-velha/blob/master/V%C3%ADdeos/video_projeto.mp4)
