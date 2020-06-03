@@ -1,3 +1,4 @@
+
 tabuleiro = [['_','_','_'],['_','_','_'],['_','_','_']]
 historicoTab = []
 ganhadores = []
@@ -6,27 +7,32 @@ jogador1 = "X"
 jogador2 = "O"
 
 
+
 '''Funções'''
-def jogar():
-    
-    while(ganhar == False):
-        mostrarTabuleiro()
-        inserirLinhaColuna(jogador1)
-        checarSeGanhou(jogador1)
-        mostrarTabuleiro()
-        inserirLinhaColuna(jogador2)
-        checarSeGanhou(jogador2)
-
-
-
-def inserirLinhaColuna(jogador):
-    linha1 = int(input('JOGADOR '+ jogador+' | DIGITE A LINHA: '))
-    coluna1 = int (input('JOGADOR '+ jogador+' | DIGITE A COLUNA: '))
+def escolherOpcaoEOrientar():
     print()
+    print('PARA JOGAR DIGITE 1 ')
+    print()
+    print('PARA VER O HISTÓRICO DIGITE 2')
+    print()
+    print("PARA ENCERRAR DIGITE 3")
+    print()
+    opcao = int(input("Digite sua opção: "))
 
-    tabuleiro[linha1 - 1][coluna1 - 1] = jogador
+    while opcao != 3:
+        if opcao == 1:
+            jogar()
+            
+        
+        if opcao == 2:
+            mostrarHistorico()
 
-    
+        opcao = int(input("Digite sua opção: "))
+
+        if opcao ==  3:
+          print("Fim do jogo!")
+
+
 
 def escolherOpcaoEOrientar():
     print()
@@ -53,6 +59,41 @@ def escolherOpcaoEOrientar():
 
 
 
+def jogar():
+    
+    while(ganhar == False):
+        mostrarTabuleiro()
+        inserirLinhaColuna(jogador1)
+        if(checarSeGanhou(jogador1) == True):
+            tabuleiro = [['_','_','_'],['_','_','_'],['_','_','_']]
+            break
+        
+        mostrarTabuleiro()
+        inserirLinhaColuna(jogador2)
+        if(checarSeGanhou(jogador2) == True):
+            tabuleiro = [['_','_','_'],['_','_','_'],['_','_','_']]
+            break
+
+
+def mostrarTabuleiro():
+    print('-------------------------JOGO DA VELHA-------------------------')
+    for i in range(0,3):
+        print()
+        print('                         ',
+              tabuleiro[i][0],'|', tabuleiro[i][1],'|', tabuleiro[i][2])
+    print()
+
+
+
+def inserirLinhaColuna(jogador):
+    linha1 = int(input('JOGADOR '+ jogador+' | DIGITE A LINHA: '))
+    coluna1 = int (input('JOGADOR '+ jogador+' | DIGITE A COLUNA: '))
+    print()
+
+    tabuleiro[linha1 - 1][coluna1 - 1] = jogador
+
+
+
 def mostrarHistorico():
     numeroDePartidas = len(historicoTab)
     for a in range(0,numeroDePartidas):
@@ -66,34 +107,20 @@ def mostrarHistorico():
 
 
 
-def mostrarTabuleiro():
-    print('-------------------------JOGO DA VELHA-------------------------')
-    for i in range(0,3):
-        print()
-        print('                         ',
-              tabuleiro[i][0],'|', tabuleiro[i][1],'|', tabuleiro[i][2])
-    print()
-
-
-
-def zerarTab():
-    tabuleiro = [[ '_', '_' , '_' ],[ '_', '_', '_' ],[ '_', '_', '_' ]]
-
-
-
 def checarSeGanhou(jogador):
-    darVelha()
-    ganharEmLinha()
-    ganharEmColuna()
-    ganharEmDiagonal()
+    velha = darVelha()
+    linha =ganharEmLinha()
+    coluna = ganharEmColuna()
+    diagonal = ganharEmDiagonal()
 
-    if(darVelha() == True or ganharEmLinha() == True or ganharEmColuna == True or ganharEmDiagonal == True):
+    if(velha == True or linha == True or coluna == True or diagonal == True):
         mostrarTabuleiro()
-        zerarTab()
+            tabuleiro = [['_','_','_'],['_','_','_'],['_','_','_']]
         historicoTab.append(tabuleiro)
-        ganhar = True
+        return True
 
         
+
 def ganharEmLinha():
     for a in range (0,3):
         if tabuleiro[a][0] == 'X' and tabuleiro[a][1] == 'X' and tabuleiro[a][2] == 'X':
@@ -109,6 +136,7 @@ def ganharEmLinha():
     return False
 
 
+
 def ganharEmColuna():
     for k in range (0,3):
         if tabuleiro[0][k] == 'X' and tabuleiro[1][k] == 'X' and tabuleiro[2][k] == 'X' :
@@ -121,6 +149,7 @@ def ganharEmColuna():
             ganhadores.append("jogador 2 ganhou!")            
             return True
     return False
+
 
 
 def ganharEmDiagonal():
@@ -146,6 +175,8 @@ def ganharEmDiagonal():
 
     return False
 
+
+
 def darVelha():
     if (tabuleiro[0][0] != '_' and tabuleiro[0][1] != '_'and tabuleiro[0][2] != '_'):
         if(tabuleiro[1][0] != '_' and tabuleiro[1][1] != '_' and tabuleiro[1][2] != '_'):
@@ -155,7 +186,6 @@ def darVelha():
                     ganhadores.append("Velha")
                     return True
     return False
-
 
 
 
