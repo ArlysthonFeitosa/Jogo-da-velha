@@ -1,7 +1,6 @@
 # Tic Tac Toe
 ## Tic Tac Toe made in python
 
-Play Tic Tac Toe in Python!
    * Choose the first option to play
       * Each player insert the line and the column
       
@@ -10,6 +9,7 @@ Play Tic Tac Toe in Python!
    
    * To exit, choose the third option
       
+### Progect Images
 ![Imagens](https://github.com/ArlysthonFeitosa/Jogo-da-velha/blob/master/Imagens/1.PNG)
 ![Imagens](https://github.com/ArlysthonFeitosa/Jogo-da-velha/blob/master/Imagens/2.PNG)
 ![Imagens](https://github.com/ArlysthonFeitosa/Jogo-da-velha/blob/master/Imagens/3.PNG)
