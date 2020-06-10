@@ -1,5 +1,6 @@
 # Tic Tac Toe
 ## Tic Tac Toe made in python
+Portuguese: ![Página em português](https://github.com/ArlysthonFeitosa/Jogo-da-velha/blob/master/README.md)
 
    * Choose the first option to play
       * Each player insert the line and the column
