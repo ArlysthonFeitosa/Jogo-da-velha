@@ -46,16 +46,18 @@ def escolherOpcaoEOrientar():
 def jogar():
     
     while(True):
-
         mostrarTabuleiro()
         inserirLinhaColuna(jogador1)
+
         if(checarSeGanhou(jogador1) == True):
             break
             
         mostrarTabuleiro()
         inserirLinhaColuna(jogador2)
+
         if(checarSeGanhou(jogador2) == True):
             break
+
 
 
 def mostrarTabuleiro():
@@ -75,10 +77,14 @@ def inserirLinhaColuna(jogador):
 
     tabuleiro[linha1 - 1][coluna1 - 1] = jogador
 
+
+
 def limparTabuleiro():
     for i in range(0,3):
         for j in range(0,3):
             tabuleiro[i][j] = '_'
+
+
 
 def mostrarHistorico():
     numeroDePartidas = len(historicoTab)
